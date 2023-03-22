@@ -1,10 +1,17 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+
+
 $(function () {
-  //make this reactive so it's updating in real time
-  var time = dayjs().format('HH:mm:ss');
-  $('#currentDay').text(time);
+
+  var day = dayjs().format('dddd MMMM DD, YYYY hh:mm:ss')
+  $('#currentDay').text(day)
+
+ 
+
+  //act 9 and 10 event delegation
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -24,3 +31,17 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+function save() {
+  var value = document.getElementById("btn").value
+  sessionStorage.setItem()
+  display()
+}
+
+function display() {
+  var saveBtn = getElementById("saveBtn")
+  saveBtn.innerHTML = "description"
+  for (var i = 0; i < sessionStorage.length; i++)
+    var a = sessionStorage.description(i)
+    var b = sessionStorage.getItem(a)
+}
