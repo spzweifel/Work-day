@@ -1,9 +1,23 @@
 var container = $(".time-block")
-
+var currentTime = dayjs().hour()
+console.log(currentTime)
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+
+for (var i = 8; i <= 17; i++) {
+  console.log(currentTime, i)
+  if (currentTime === i) {
+    $("#hour-" + i).addClass("present")
+  }
+  if (currentTime > i) {
+    $("#hour-" + i).addClass("past")
+  }
+  if (currentTime < i)  {
+    $("#hour-" + i).addClass("future")
+  }
+}
 
 
 
@@ -13,14 +27,21 @@ container.on("click", ".btn", function(){
   console.log($(this).parent().attr("id"));
   var textInput = $(this).parent().children().eq(1).val();
   console.log(textInput);
+  var id = $(this).parent().attr("id")
 
-  localStorage.setItem("textInput", textInput);
-  var output = localStorage.getItem("textInput");
+  localStorage.setItem(id, textInput);
+  var output = localStorage.getItem(id);
   console.log(output, '${output}');
-  localStorage.getItem("textInput", textInput)
+  
   //$('.description').val(localStorage.getItem('textInput'));
 })
 
+for (var i = 8; i <= 17; i++) {
+  var id = "hour-" + i
+  var output = localStorage.getItem(id);
+//output.text("#hour-11")
+  $("#" + id).children(".description").val(output)
+}
   //$(document).ready(function() {
 //   $(input[name=server]).val(localStorage.getItem("server"));
 // });
