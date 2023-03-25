@@ -9,16 +9,22 @@ var container = $(".time-block")
 
 $(function () {
 
-  
- 
-container.on("click", ".saveBtn", function(){
+container.on("click", ".btn", function(){
   console.log($(this).parent().attr("id"));
   var textInput = $(this).parent().children().eq(1).val();
   console.log(textInput);
 
   localStorage.setItem("textInput", textInput);
-  localStorage.getItem("textInput");
+  var output = localStorage.getItem("textInput");
+  console.log(output, '${output}');
+  localStorage.getItem("textInput", textInput)
+  //$('.description').val(localStorage.getItem('textInput'));
 })
+
+  //$(document).ready(function() {
+//   $(input[name=server]).val(localStorage.getItem("server"));
+// });
+
   //act 9 and 10 event delegation
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
