@@ -33,18 +33,19 @@ container.on("click", ".btn", function(){
   var output = localStorage.getItem(id);
   console.log(output, '${output}');
   
-  //$('.description').val(localStorage.getItem('textInput'));
+
 })
 
 for (var i = 8; i <= 17; i++) {
   var id = "hour-" + i
   var output = localStorage.getItem(id);
-//output.text("#hour-11")
+
   $("#" + id).children(".description").val(output)
 }
-  //$(document).ready(function() {
-//   $(input[name=server]).val(localStorage.getItem("server"));
-// });
+
+var day = dayjs().format('dddd MMMM DD, YYYY hh:mm:ss')
+$('#currentDay').text(day)
+
 
   //act 9 and 10 event delegation
   // TODO: Add a listener for click events on the save button. This code should
@@ -65,21 +66,6 @@ for (var i = 8; i <= 17; i++) {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-  var day = dayjs().format('dddd MMMM DD, YYYY hh:mm:ss')
-  $('#currentDay').text(day)
 
 });
 
-// function save() {
-//   var value = document.getElementById("btn").value
-//   sessionStorage.setItem()
-//   display()
-// }
-
-// function display() {
-//   var saveBtn = getElementById("saveBtn")
-//   saveBtn.innerHTML = "description"
-//   for (var i = 0; i < sessionStorage.length; i++)
-//     var a = sessionStorage.description(i)
-//     var b = sessionStorage.getItem(a)
-// }
